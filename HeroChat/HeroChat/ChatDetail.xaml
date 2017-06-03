@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HeroChat.ChatDetail"
+             Title="Detail">
+    <Grid 
+        Padding="20" 
+        BackgroundColor="Yellow">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
+        <StackLayout 
+            Orientation="Horizontal" Grid.Row="0" >
+            <Image 
+                BackgroundColor="Red" 
+                HorizontalOptions="Start" 
+                Source="batman" 
+                Aspect="AspectFit"/>
+            <StackLayout 
+                Orientation="Vertical" 
+                BackgroundColor="White"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand">
+                <Label Text="Name" FontSize="Large" FontAttributes="Bold" TextColor="LawnGreen"/>
+                <Label Text="Name" FontSize="Medium" VerticalOptions="Center"/>
+                <Label Text="Name" FontSize="Medium" VerticalOptions="Center"/>
+                <Label Text="Name" FontSize="Medium" VerticalOptions="Center"/>
+            </StackLayout>
+        </StackLayout>
+        <StackLayout 
+            Orientation="Vertical" 
+            Grid.Row="1" 
+            BackgroundColor="DarkBlue">
+            <ListView
+                x:Name="MessageListView"
+                VerticalOptions="FillAndExpand"
+                HasUnevenRows="True" 
+                BackgroundColor="Green"
+                ItemsSource="{Binding Messages}">
+            </ListView>
+            <StackLayout Orientation="Horizontal">
+                <Entry 
+                    x:Name="MessageEntry"
+                    BackgroundColor="Magenta"
+                    HorizontalOptions="FillAndExpand"/>
+                <Button 
+                    x:Name="SendMessageBtn"
+                    BackgroundColor="Red" 
+                    HorizontalOptions="End"
+                    Command="{Binding SendMessageCommand}"
+                    />
+            </StackLayout>
+        </StackLayout>
+    </Grid>
+</ContentPage>
